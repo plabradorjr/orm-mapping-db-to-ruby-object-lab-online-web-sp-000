@@ -15,10 +15,12 @@ class Student
     # remember each row should be a new instance of the Student class
     sql = <<-SQL
       SELECT *
-      FROM songs
+      FROM students
     SQL
 
-    DB[:conn].execute(sql)
+    DB[:conn].execute(sql).map do |row|
+      self.new_from_db(row)
+    end
   end
 
   def self.find_by_name(name)
