@@ -19,7 +19,7 @@ class Student
     SQL
 
     DB[:conn].execute(sql)
-    end
+    
   end
 
   def self.find_by_name(name)
@@ -62,5 +62,5 @@ class Student
     sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
   end
-  
+
 end
